@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wheel Of Fortune</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- START SCREEN -->
+<div id="startScreen" class="screen active">
+<h1>WHEEL OF FORTUNE</h1>
+<button onclick="showMode()">START GAME</button>
+</div>
+
+<!-- MODE SELECT -->
+<div id="modeScreen" class="screen">
+<h2>Select Game Mode</h2>
+<button onclick="setupPuzzle()">Puzzle Game</button>
+<button onclick="setupRapid()">Rapid Game</button>
+</div>
+
+<!-- PLAYER SETUP -->
+<div id="playerScreen" class="screen">
+
+<h2>Enter Players (2–5)</h2>
+
+<input id="p1" placeholder="Player 1">
+<input id="p2" placeholder="Player 2">
+<input id="p3" placeholder="Player 3">
+<input id="p4" placeholder="Player 4">
+<input id="p5" placeholder="Player 5">
+
+<h2>Select Category</h2>
+
+<select id="category" onchange="checkSub()">
+<option>BOLLYWOOD</option>
+<option>KAHAVAT</option>
+<option>REGULAR PHRASE</option>
+<option>KHAANA PEENA</option>
+<option>SONGS</option>
+<option>G.K</option>
+</select>
+
+<select id="subcategory">
+<option>70s and 80s</option>
+<option>90S</option>
+<option>2000S</option>
+<option>2010s AND LATEST</option>
+</select>
+
+<button onclick="startPuzzle()">Start Puzzle</button>
+
+</div>
+
+<!-- GAME SCREEN -->
+<div id="gameScreen" class="screen">
+
+<div class="topBar">
+
+<div>
+<h3 id="categoryDisplay"></h3>
+<h4 id="subDisplay"></h4>
+</div>
+
+<div id="scoreBoard"></div>
+
+</div>
+
+<h2 id="turnIndicator"></h2>
+<div id="puzzleBoard"></div>
+
+<div class="middle">
+
+<div class="wheelArea">
+
+<div class="pointer"></div>
+
+<canvas id="wheelCanvas" width="350" height="350"></canvas>
+
+<button class="spinBtn" onclick="spinWheel()">SPIN</button>
+
+<div id="wheelResult"></div>
+
+</div>
+
+<div id="keyboard"></div>
+
+</div>
+
+<div class="options">
+<button onclick="buyVowel()">BUY VOWEL</button>
+<button onclick="solvePuzzle()">SOLVE</button>
+</div>
+
+</div>
+
+<!-- RAPID GAME -->
+<div id="rapidScreen" class="screen">
+
+<div class="rapidTop">
+
+<div class="rapidCategoryBox">
+<h3 id="rapidCategory"></h3>
+<h4 id="rapidSub"></h4>
+</div>
+
+<div class="rapidTitle">
+<h1>RAPID GAME</h1>
+</div>
+
+<select id="rapidCategorySelect">
+<option>BOLLYWOOD</option>
+<option>GHAR KI CHEEZEIN</option>
+<option>CRICKET KI DUNIYA</option>
+<option>INDIAN CITIES</option>
+<option>PERSONALITY</option>
+<option>SPORTS</option>
+<option>ANIMALS</option>
+</select>
+
+<button onclick="startRapid()">Start Rapid</button>
+
+<div class="rapidTimer">
+<div id="timer">30</div>
+<div>seconds left</div>
+</div>
+
+</div>
+
+
+<div class="rapidMiddle">
+
+<div id="rapidBoard"></div>
+
+<div class="rapidRight">
+
+<button onclick="fillMagical()">Fill magical letters</button>
+
+<button onclick="fillPlayerLetters()">Fill player's letters</button>
+
+<button onclick="startTimer()">Start Timer</button>
+
+<button onclick="solveRapid()">SOLVE</button>
+
+<button onclick="passRapid()">PASS</button>
+
+</div>
+
+</div>
+
+<div id="rapidKeyboard"></div>
+
+</div>
+
+</div>
+
+<script src="puzzledatabase.js"></script>
+<script src="rapid_database.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>
