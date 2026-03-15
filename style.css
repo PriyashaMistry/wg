@@ -52,27 +52,6 @@ margin:15px auto;
 
 }
 
-.tile{
-
-width:30px;
-height:38px;
-
-background:white;
-
-border-radius:8px;
-
-box-shadow:
-0 3px 6px rgba(0,0,0,0.2);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:18px;
-font-weight:bold;
-
-}
-
 .middle{
 display:flex;
 justify-content:center;
@@ -419,11 +398,6 @@ grid-template-columns:repeat(9,55px);
 gap:10px;
 }
 
-.key{
-width:55px;
-height:50px;
-font-size:18px;
-}
 
 /* Reduce board spacing */
 #puzzleBoard{
