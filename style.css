@@ -242,13 +242,14 @@ grid-template-columns:repeat(9,70px);
 gap:12px;
 justify-content:center;
 margin-top:-100px;
-margin-left:-400px;
+margin-left:-300px;
 }
 
 /* RAPID SCREEN LAYOUT */
 
 #rapidScreen{
-overflow:auto;
+overflow:hidden;
+height:100vh;
 }
 
 .rapidTop{
