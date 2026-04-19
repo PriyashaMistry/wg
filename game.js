@@ -43,6 +43,7 @@ show("playerScreen")
 
 function setupRapid(){
 show("rapidScreen")
+startRapid()
 }
 
 function checkSub(){
@@ -346,8 +347,8 @@ spinning = true
 canGuess = false
 vowelAllowed = false
 
-let velocity = 0.6 + Math.random() * 0.6
-const friction = 0.985
+let velocity = 0.4 + Math.random() * 0.3
+const friction = 0.94
 
 function animate(){
 
@@ -356,7 +357,7 @@ velocity *= friction
 
 drawWheel()
 
-if(velocity > 0.01){
+if(velocity > 0.03){
 requestAnimationFrame(animate)
 }
 else{
@@ -528,6 +529,23 @@ document.body.appendChild(confetti)
 setTimeout(()=>{
 confetti.remove()
 },3000)
+
+}
+
+function restartPuzzle(){
+
+// reset everything
+players = []
+scores = []
+currentPlayer = 0
+puzzle = ""
+revealed = []
+canGuess = false
+vowelAllowed = false
+currentSpinValue = 0
+
+// go back to player setup
+show("playerScreen")
 
 }
 
@@ -714,25 +732,25 @@ rapidKeyboard.appendChild(b)
 
 }
 
+let timerInterval
+
 function startTimer(){
 
-let time=30
+clearInterval(timerInterval) // stop old timer
 
-let timer=document.getElementById("timer")
-timer.innerText=time
+let time = 30
+let timer = document.getElementById("timer")
+timer.innerText = time
 
-let t=setInterval(()=>{
+timerInterval = setInterval(()=>{
 
 time--
-
-timer.innerText=time
+timer.innerText = time
 
 if(time<=0){
 
-clearInterval(t)
-
+clearInterval(timerInterval)
 alert("Time Up!")
-
 document.getElementById("rapidKeyboard").style.display="none"
 
 }
